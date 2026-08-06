@@ -1,0 +1,37 @@
+# Python / Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# Databases & Snapshots
+*.db
+*.sqlite3
+backend/propflow.db
+snapshots/
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.production
+*.pem
+*.key
+
+# Docker & Logs
+*.log
+.docker/
+
+# Next.js / Frontend / Node
+node_modules/
+.next/
+out/
+build/
+dist/
+
+# macOS / OS Files
+.DS_Store
+Thumbs.db
