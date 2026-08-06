@@ -1,0 +1,544 @@
+{
+  "leads": [
+    {
+      "id": "lead_a81f3c",
+      "address": "4500 Congress Ave",
+      "city": "Austin, TX",
+      "owner": "Apex Lone Star Holdings LLC",
+      "type": "LLC",
+      "equity": ",000",
+      "tags": [
+        "ABSENTEE_OWNER",
+        "HIGH_EQUITY"
+      ],
+      "phones": [
+        "+1 (512) 555-0199"
+      ]
+    },
+    {
+      "id": "lead_b92e4d",
+      "address": "8804 South Lamar Blvd",
+      "city": "Austin, TX",
+      "owner": "Robert Miller",
+      "type": "INDIVIDUAL",
+      "equity": ",000",
+      "tags": [
+        "VACANT",
+        "TAX_DELINQUENT"
+      ],
+      "phones": [
+        "+1 (737) 555-0142"
+      ]
+    }
+  ],
+  "vendors": [
+    {
+      "id": "vnd_4b03b0",
+      "name": "Apex Plumbing Services",
+      "trade": "PLUMBING",
+      "phone": "+15125550101",
+      "email": "dispatch@apexplumbing.com",
+      "active": 1
+    },
+    {
+      "id": "vnd_cfc566",
+      "name": "Lone Star HVAC & Cooling",
+      "trade": "HVAC",
+      "phone": "+15125550102",
+      "email": "service@lonestarhvac.com",
+      "active": 1
+    },
+    {
+      "id": "vnd_b6b371",
+      "name": "VoltCraft Electrical",
+      "trade": "ELECTRICAL",
+      "phone": "+15125550103",
+      "email": "jobs@voltcraftelectrical.com",
+      "active": 1
+    },
+    {
+      "id": "vnd_4b6e18",
+      "name": "Austin General Contractors",
+      "trade": "GENERAL",
+      "phone": "+15125550104",
+      "email": "contact@austincm.com",
+      "active": 1
+    }
+  ],
+  "audit_logs": [
+    {
+      "id": "audit_35fac5",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 10:09:21",
+      "payload": "null"
+    },
+    {
+      "id": "audit_47d72c",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 10:09:21",
+      "payload": "null"
+    },
+    {
+      "id": "audit_626ca4",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 10:11:26",
+      "payload": "null"
+    },
+    {
+      "id": "audit_f2031e",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 10:11:26",
+      "payload": "null"
+    },
+    {
+      "id": "audit_f448ba",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 10:20:54",
+      "payload": "null"
+    },
+    {
+      "id": "audit_79cd34",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 10:20:54",
+      "payload": "null"
+    },
+    {
+      "id": "audit_a2df40",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 10:26:00",
+      "payload": "null"
+    },
+    {
+      "id": "audit_0e2b79",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 10:26:00",
+      "payload": "null"
+    },
+    {
+      "id": "audit_5c6b05",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 10:30:54",
+      "payload": "null"
+    },
+    {
+      "id": "audit_958789",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 10:30:54",
+      "payload": "null"
+    },
+    {
+      "id": "audit_d664dd",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 10:34:34",
+      "payload": "null"
+    },
+    {
+      "id": "audit_a92202",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 10:34:34",
+      "payload": "null"
+    },
+    {
+      "id": "audit_bacc76",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 10:37:18",
+      "payload": "null"
+    },
+    {
+      "id": "audit_96e09f",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 10:37:18",
+      "payload": "null"
+    },
+    {
+      "id": "audit_20a93f",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 10:38:03",
+      "payload": "null"
+    },
+    {
+      "id": "audit_2823b5",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 10:38:03",
+      "payload": "null"
+    },
+    {
+      "id": "audit_1786012684027",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T10:38:04.027249+00:00",
+      "payload": "\"{\\\"raw\\\": \\\"{\\\\\\\"score\\\\\\\":85}\\\"}\""
+    },
+    {
+      "id": "audit_79e83c",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 11:42:09",
+      "payload": "null"
+    },
+    {
+      "id": "audit_3c01b9",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 11:42:09",
+      "payload": "null"
+    },
+    {
+      "id": "audit_1786016529669",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T11:42:09.668927+00:00",
+      "payload": "\"{\\\"raw\\\": \\\"{\\\\\\\"score\\\\\\\":85}\\\"}\""
+    },
+    {
+      "id": "audit_8545ed",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 11:43:58",
+      "payload": "null"
+    },
+    {
+      "id": "audit_2aa4c8",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 11:43:58",
+      "payload": "null"
+    },
+    {
+      "id": "audit_1786016638214",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T11:43:58.214550+00:00",
+      "payload": "\"{\\\"raw\\\": \\\"{\\\\\\\"score\\\\\\\":85}\\\"}\""
+    },
+    {
+      "id": "audit_be6e04",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 11:44:42",
+      "payload": "null"
+    },
+    {
+      "id": "audit_a52f9d",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 11:44:42",
+      "payload": "null"
+    },
+    {
+      "id": "audit_1786016682873",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T11:44:42.873398+00:00",
+      "payload": "\"{\\\"raw\\\": \\\"{\\\\\\\"score\\\\\\\":85}\\\"}\""
+    },
+    {
+      "id": "audit_a61ac0",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 11:55:15",
+      "payload": "null"
+    },
+    {
+      "id": "audit_ba040b",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 11:55:15",
+      "payload": "null"
+    },
+    {
+      "id": "audit_1786017315810",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T11:55:15.810868+00:00",
+      "payload": "\"{\\\"raw\\\": \\\"{\\\\\\\"score\\\\\\\":85}\\\"}\""
+    },
+    {
+      "id": "audit_c73d0d",
+      "event_type": "STATEMENT_PDF_GENERATED",
+      "description": "Generated Owner Statement PDF for John Doe",
+      "timestamp": "2026-08-06 11:56:09",
+      "payload": "null"
+    },
+    {
+      "id": "audit_4c5926",
+      "event_type": "LEASE_PDF_GENERATED",
+      "description": "Generated official PDF lease agreement for Sarah Connor",
+      "timestamp": "2026-08-06 11:56:09",
+      "payload": "null"
+    },
+    {
+      "id": "audit_1786017369115",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T11:56:09.115302+00:00",
+      "payload": "\"{\\\"raw\\\": \\\"{\\\\\\\"score\\\\\\\":85}\\\"}\""
+    },
+    {
+      "id": "audit_1786017493317",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T11:58:13.317512+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "audit_1786017539652",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T11:58:59.651984+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "audit_1786017609918",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T12:00:09.918043+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "audit_1786017669450",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T12:01:09.450174+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "sms_1786017669467",
+      "event_type": "INBOUND_SMS_RECEIVED",
+      "description": "SMS from +15550199: Is there any available rent unit?",
+      "timestamp": "2026-08-06T12:01:09.467413+00:00",
+      "payload": null
+    },
+    {
+      "id": "audit_1786019991582",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T12:39:51.582089+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "sms_1786019991601",
+      "event_type": "INBOUND_SMS_RECEIVED",
+      "description": "SMS from +15550199: Is there any available rent unit?",
+      "timestamp": "2026-08-06T12:39:51.601836+00:00",
+      "payload": null
+    },
+    {
+      "id": "audit_1786020062391",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T12:41:02.391860+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "sms_1786020062412",
+      "event_type": "INBOUND_SMS_RECEIVED",
+      "description": "SMS from +15550199: Is there any available rent unit?",
+      "timestamp": "2026-08-06T12:41:02.412645+00:00",
+      "payload": null
+    },
+    {
+      "id": "audit_1786028782440",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T15:06:22.440128+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "sms_1786028782475",
+      "event_type": "INBOUND_SMS_RECEIVED",
+      "description": "SMS from +15550199: Is there any available rent unit?",
+      "timestamp": "2026-08-06T15:06:22.475184+00:00",
+      "payload": null
+    },
+    {
+      "id": "audit_1786028947632",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T15:09:07.632714+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "sms_1786028947664",
+      "event_type": "INBOUND_SMS_RECEIVED",
+      "description": "SMS from +15550199: Is there any available rent unit?",
+      "timestamp": "2026-08-06T15:09:07.664761+00:00",
+      "payload": null
+    },
+    {
+      "id": "audit_1786029161051",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T15:12:41.051842+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "sms_1786029161085",
+      "event_type": "INBOUND_SMS_RECEIVED",
+      "description": "SMS from +15550199: Is there any available rent unit?",
+      "timestamp": "2026-08-06T15:12:41.085331+00:00",
+      "payload": null
+    },
+    {
+      "id": "audit_1786029487131",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T15:18:07.131596+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "sms_1786029487150",
+      "event_type": "INBOUND_SMS_RECEIVED",
+      "description": "SMS from +15550199: Is there any available rent unit?",
+      "timestamp": "2026-08-06T15:18:07.150535+00:00",
+      "payload": null
+    },
+    {
+      "id": "audit_1786029505697",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T15:18:25.697584+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "sms_1786029505739",
+      "event_type": "INBOUND_SMS_RECEIVED",
+      "description": "SMS from +15550199: Is there any available rent unit?",
+      "timestamp": "2026-08-06T15:18:25.739699+00:00",
+      "payload": null
+    },
+    {
+      "id": "audit_1786029525253",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T15:18:45.253761+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "sms_1786029525272",
+      "event_type": "INBOUND_SMS_RECEIVED",
+      "description": "SMS from +15550199: Is there any available rent unit?",
+      "timestamp": "2026-08-06T15:18:45.272591+00:00",
+      "payload": null
+    },
+    {
+      "id": "audit_1786029712771",
+      "event_type": "LEAD_QUALIFIED",
+      "description": "Lead scored HOT",
+      "timestamp": "2026-08-06T15:21:52.771429+00:00",
+      "payload": "\"{\\\"score\\\": 85}\""
+    },
+    {
+      "id": "sms_1786029712796",
+      "event_type": "INBOUND_SMS_RECEIVED",
+      "description": "SMS from +15550199: Is there any available rent unit?",
+      "timestamp": "2026-08-06T15:21:52.796432+00:00",
+      "payload": null
+    }
+  ],
+  "alembic_version": [
+    {
+      "version_num": "1197a33b3189"
+    }
+  ],
+  "financial_records": [
+    {
+      "id": "fin_01",
+      "owner_name": "Apex Lone Star Holdings LLC",
+      "property_address": "4500 Congress Ave",
+      "gross_rent": 14500.0,
+      "management_fee_pct": 0.08,
+      "reserve_fund_pct": 0.05,
+      "maintenance_deductions": 350.0,
+      "month_year": "August 2026"
+    },
+    {
+      "id": "fin_02",
+      "owner_name": "Apex Lone Star Holdings LLC",
+      "property_address": "1204 East 6th St",
+      "gross_rent": 8200.0,
+      "management_fee_pct": 0.08,
+      "reserve_fund_pct": 0.05,
+      "maintenance_deductions": 120.0,
+      "month_year": "August 2026"
+    },
+    {
+      "id": "fin_03",
+      "owner_name": "Apex Lone Star Holdings LLC",
+      "property_address": "8804 South Lamar Blvd",
+      "gross_rent": 5800.0,
+      "management_fee_pct": 0.08,
+      "reserve_fund_pct": 0.05,
+      "maintenance_deductions": 0.0,
+      "month_year": "August 2026"
+    }
+  ],
+  "work_orders": [
+    {
+      "id": "wo_101",
+      "property_address": "1204 East 6th St",
+      "unit": "Apt 2B",
+      "title": "HVAC Unit Making Loud Buzzing Sound",
+      "description": "AC unit isn't cooling effectively.",
+      "priority": "HIGH",
+      "status": "IN_PROGRESS",
+      "created_at": "2026-08-06 00:18"
+    },
+    {
+      "id": "wo_102",
+      "property_address": "4500 Congress Ave",
+      "unit": "Suite 100",
+      "title": "Main Entrance Door Lock Sticking",
+      "description": "Keycard latch fails to engage.",
+      "priority": "MEDIUM",
+      "status": "OPEN",
+      "created_at": "2026-08-06 00:18"
+    },
+    {
+      "id": "wo_fc50",
+      "property_address": "4500 Congress Ave",
+      "unit": "Suite 100",
+      "title": "HVAC System Failure",
+      "description": "Main cooling unit stopped functioning.",
+      "priority": "HIGH",
+      "status": "OPEN",
+      "created_at": "2026-08-06 00:42"
+    },
+    {
+      "id": "wo_4e23",
+      "property_address": "1204 East 6th St",
+      "unit": "Apt 4",
+      "title": "Severe Water Leak From Bathroom Ceiling",
+      "description": "Water leaking through ceiling fixtures.",
+      "priority": "HIGH",
+      "status": "OPEN",
+      "created_at": null
+    },
+    {
+      "id": "wo_e637",
+      "property_address": "1204 East 6th St",
+      "unit": "Apt 4",
+      "title": "Severe Water Leak From Bathroom Ceiling",
+      "description": "Water leaking through ceiling fixtures.",
+      "priority": "HIGH",
+      "status": "OPEN",
+      "created_at": "2026-08-06 08:12:17"
+    }
+  ]
+}

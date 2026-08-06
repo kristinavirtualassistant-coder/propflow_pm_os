@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+case "$1" in
+  status)
+    echo "=== PM2 PROCESS STATUS ==="
+    pm2 status
+    echo ""
+    echo "=== API HEALTH CHECK ==="
+    curl -s http://127.0.0.1:8000/health | python3 -m json.tool
+    ;;
+  backup)
+    echo "=== EXECUTING DATABASE BACKUPS ==="
+    python3 backend/db_tools.py json
+    python3 backend/db_tools.py sql
+    ;;
+  inspect)
+    python3 backend/db_tools.py inspect
+    ;;
+  restart)
+    echo "=== RESTARTING ALL PROPFLOW SERVICES ==="
+    pm2 restart all
+    ;;
+  *)
+    echo "PropFlow PM OS Quick Management CLI"
+    echo "Usage: ./bin/propflow-cli {status|backup|inspect|restart}"
+    ;;
+esac

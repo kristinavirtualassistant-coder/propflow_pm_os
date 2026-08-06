@@ -1,0 +1,98 @@
+{
+  "leads": [
+    {
+      "id": "lead_a81f3c",
+      "address": "4500 Congress Ave",
+      "city": "Austin, TX",
+      "owner": "Apex Lone Star Holdings LLC",
+      "type": "LLC",
+      "equity": ",000",
+      "tags": [
+        "ABSENTEE_OWNER",
+        "HIGH_EQUITY"
+      ],
+      "phones": [
+        "+1 (512) 555-0199"
+      ]
+    },
+    {
+      "id": "lead_b92e4d",
+      "address": "8804 South Lamar Blvd",
+      "city": "Austin, TX",
+      "owner": "Robert Miller",
+      "type": "INDIVIDUAL",
+      "equity": ",000",
+      "tags": [
+        "VACANT",
+        "TAX_DELINQUENT"
+      ],
+      "phones": [
+        "+1 (737) 555-0142"
+      ]
+    }
+  ],
+  "work_orders": [
+    {
+      "id": "wo_101",
+      "property_address": "1204 East 6th St",
+      "unit": "Apt 2B",
+      "title": "HVAC Unit Making Loud Buzzing Sound",
+      "description": "AC unit isn't cooling effectively.",
+      "priority": "HIGH",
+      "status": "IN_PROGRESS",
+      "created_at": "2026-08-06 00:18"
+    },
+    {
+      "id": "wo_102",
+      "property_address": "4500 Congress Ave",
+      "unit": "Suite 100",
+      "title": "Main Entrance Door Lock Sticking",
+      "description": "Keycard latch fails to engage.",
+      "priority": "MEDIUM",
+      "status": "OPEN",
+      "created_at": "2026-08-06 00:18"
+    },
+    {
+      "id": "wo_fc50",
+      "property_address": "4500 Congress Ave",
+      "unit": "Suite 100",
+      "title": "HVAC System Failure",
+      "description": "Main cooling unit stopped functioning.",
+      "priority": "HIGH",
+      "status": "OPEN",
+      "created_at": "2026-08-06 00:42"
+    }
+  ],
+  "financial_records": [
+    {
+      "id": "fin_01",
+      "owner_name": "Apex Lone Star Holdings LLC",
+      "property_address": "4500 Congress Ave",
+      "gross_rent": 14500.0,
+      "management_fee_pct": 0.08,
+      "reserve_fund_pct": 0.05,
+      "maintenance_deductions": 350.0,
+      "month_year": "August 2026"
+    },
+    {
+      "id": "fin_02",
+      "owner_name": "Apex Lone Star Holdings LLC",
+      "property_address": "1204 East 6th St",
+      "gross_rent": 8200.0,
+      "management_fee_pct": 0.08,
+      "reserve_fund_pct": 0.05,
+      "maintenance_deductions": 120.0,
+      "month_year": "August 2026"
+    },
+    {
+      "id": "fin_03",
+      "owner_name": "Apex Lone Star Holdings LLC",
+      "property_address": "8804 South Lamar Blvd",
+      "gross_rent": 5800.0,
+      "management_fee_pct": 0.08,
+      "reserve_fund_pct": 0.05,
+      "maintenance_deductions": 0.0,
+      "month_year": "August 2026"
+    }
+  ]
+}

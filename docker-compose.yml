@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: propflow_postgres
+    restart: always
+    environment:
+      POSTGRES_DB: propflow_db
+      POSTGRES_USER: propflow_admin
+      POSTGRES_PASSWORD: enterprise_secure_password_2026
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U propflow_admin -d propflow_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: propflow_backend
+    restart: always
+    ports:
+      - "8000:8000"
+    environment:
+      - ENVIRONMENT=production
+      - DATABASE_URL=postgresql://propflow_admin:enterprise_secure_password_2026@postgres:5432/propflow_db
+      - CORS_ALLOWED_ORIGINS=http://localhost:3000,https://app.yourdomain.com
+      - SECRET_KEY=propflow_enterprise_sec_key_2026_x89a
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
