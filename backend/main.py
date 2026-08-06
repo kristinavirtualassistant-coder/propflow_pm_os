@@ -155,53 +155,65 @@ def generate_pdf_statement():
         "message": "Statement generated successfully"
     }
 
-# --- VAPI AI VOICE AGENT WEBHOOK ---
-@app.post("/api/v1/webhooks/vapi")
-async def vapi_webhook_handler(request: Request, db: sqlite3.Connection = Depends(get_db)):
+# --- MILESTONE 2: GOOGLE CLOUD AGENT (DIALOGFLOW CX) WEBHOOK HANDLER ---
+@app.post("/api/v1/webhooks/google-cloud-agent")
+async def google_cloud_agent_webhook(request: Request, db: sqlite3.Connection = Depends(get_db)):
+    """
+    Fulfillment webhook for Google Cloud Contact Center AI (CCAI) / Dialogflow CX Agents.
+    Receives session parameters, intent info, and user query.
+    """
     try:
         payload = await request.json()
-        message = payload.get("message", {})
-        message_type = message.get("type")
+        session_info = payload.get("sessionInfo", {})
+        intent_info = payload.get("intentInfo", {})
+        
+        session_id = session_info.get("session", "N/A")
+        parameters = session_info.get("parameters", {})
+        intent_display_name = intent_info.get("displayName", "DEFAULT_INQUIRY")
+        user_query = payload.get("text", "")
 
         cursor = db.cursor()
         cursor.execute("""
-            CREATE TABLE IF NOT EXISTS CALL_LOGS (
+            CREATE TABLE IF NOT EXISTS GOOGLE_AGENT_LOGS (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
-                call_id TEXT UNIQUE,
-                phone_number TEXT,
-                transcript TEXT,
-                summary TEXT,
-                category TEXT,
+                session_id TEXT,
+                intent_name TEXT,
+                user_query TEXT,
+                parameters TEXT,
                 timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
             )
         """)
 
-        if message_type == "end-of-call-report":
-            call_id = message.get("call", {}).get("id", "N/A")
-            customer_phone = message.get("customer", {}).get("number", "Unknown")
-            transcript = message.get("transcript", "")
-            summary = message.get("summary", "")
-            
-            category = "GENERAL_INQUIRY"
-            if "leak" in transcript.lower() or "repair" in transcript.lower() or "broken" in transcript.lower():
-                category = "MAINTENANCE_REQUEST"
-            elif "rent" in transcript.lower() or "available" in transcript.lower() or "lease" in transcript.lower():
-                category = "LEAD_QUALIFICATION"
+        cursor.execute("""
+            INSERT INTO GOOGLE_AGENT_LOGS (session_id, intent_name, user_query, parameters)
+            VALUES (?, ?, ?, ?)
+        """, (session_id, intent_display_name, user_query, json.dumps(parameters)))
+        db.commit()
 
-            cursor.execute("""
-                INSERT OR REPLACE INTO CALL_LOGS (call_id, phone_number, transcript, summary, category)
-                VALUES (?, ?, ?, ?, ?)
-            """, (call_id, customer_phone, transcript, summary, category))
-            db.commit()
+        # Dynamic agent response based on detected intent
+        fulfillment_response = "Thank you for contacting PropFlow Management. Your request has been logged."
+        if "maintenance" in intent_display_name.lower():
+            fulfillment_response = "I have created an urgent work order for your property maintenance issue."
+        elif "leasing" in intent_display_name.lower():
+            fulfillment_response = "I can assist you with unit availability and leasing applications."
 
-            return {
-                "status": "processed",
-                "call_id": call_id,
-                "category": category,
-                "summary": summary
+        return {
+            "fulfillment_response": {
+                "messages": [
+                    {
+                        "text": {
+                            "text": [fulfillment_response]
+                        }
+                    }
+                ]
+            },
+            "sessionInfo": {
+                "parameters": {
+                    "agent_processed": True,
+                    "logged_to_db": True
+                }
             }
-
-        return {"status": "acknowledged", "type": message_type}
+        }
 
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Vapi Webhook Error: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Google Agent Webhook Error: {str(e)}")
