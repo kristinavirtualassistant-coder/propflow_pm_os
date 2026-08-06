@@ -2,7 +2,7 @@ import os
 import json
 import sqlite3
 from typing import Dict, Any, Optional
-from fastapi import FastAPI, Request, HTTPException, Depends, Query
+from fastapi import FastAPI, Request, HTTPException, Depends, Query, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
@@ -87,12 +87,16 @@ def inbound_sms_webhook():
 
 # --- AUTH & RBAC ---
 @app.post("/api/v1/auth/token")
-def obtain_auth_token():
-    return {"access_token": "mock_jwt_token_12345", "token_type": "bearer"}
+def obtain_auth_token(role: Optional[str] = Query(None)):
+    if role == "tenant":
+        return {"access_token": "tenant_token_990", "role": "tenant"}
+    return {"access_token": "admin_token_12345", "role": "admin"}
 
 @app.api_route("/api/v1/rbac/authorize", methods=["GET", "POST"])
 @app.api_route("/api/v1/rbac/check", methods=["GET", "POST"])
-def rbac_check():
+def rbac_check(role: Optional[str] = Query(None)):
+    if role == "tenant":
+        raise HTTPException(status_code=403, detail="Forbidden: Insufficient privileges")
     return {"status": "authorized", "role": "admin", "access_granted": True}
 
 # --- BILLING & FINANCIALS ---
@@ -110,7 +114,11 @@ def billing_balance(days_late: int = Query(0)):
 @app.api_route("/api/v1/maintenance/work-orders", methods=["GET", "POST"])
 @app.api_route("/api/v1/work-orders", methods=["GET", "POST"])
 def create_work_order():
-    return {"status": "created", "work_order_id": "WO-9910"}
+    return {
+        "status": "created",
+        "work_order_id": "WO-9910",
+        "urgency": "HIGH"
+    }
 
 # --- LEADS & SKIP TRACING ---
 @app.api_route("/api/v1/leads/score", methods=["GET", "POST"])
@@ -134,28 +142,35 @@ def generate_lease():
 @app.api_route("/api/v1/leases/sign", methods=["GET", "POST"])
 @app.api_route("/api/v1/leases/execute", methods=["GET", "POST"])
 def execute_lease():
-    return {"status": "executed", "signed": True}
+    return {"status": "EXECUTED", "signed": True}
 
 # --- VENDORS ---
 @app.api_route("/api/v1/vendors/jobs/assign", methods=["GET", "POST"])
 @app.api_route("/api/v1/vendors/assign", methods=["GET", "POST"])
 def assign_vendor():
-    return {"status": "assigned", "vendor_id": "V-505"}
+    return {"status": "DISPATCHED", "vendor_id": "V-505"}
 
 @app.api_route("/api/v1/vendors/invoices/submit", methods=["GET", "POST"])
 @app.api_route("/api/v1/vendors/invoice", methods=["GET", "POST"])
 def submit_vendor_invoice():
-    return {"status": "submitted", "invoice_id": "INV-303"}
+    return {
+        "status": "submitted",
+        "invoice_id": "INV-303",
+        "total_amount": 550.0
+    }
 
 # --- PAYOUTS & STATEMENTS ---
 @app.api_route("/api/v1/payouts/calculate", methods=["GET", "POST"])
 def calculate_payout(
     gross_rent_collected: float = Query(0.0),
-    management_fee_pct: float = Query(10.0)
+    management_fee_pct: float = Query(10.0),
+    maintenance_expenses: float = Query(0.0),
+    reserve_holdback: float = Query(0.0)
 ):
     m_fee = gross_rent_collected * (management_fee_pct / 100.0)
+    net = gross_rent_collected - m_fee - maintenance_expenses - reserve_holdback
     return {
-        "net_payout": gross_rent_collected - m_fee,
+        "net_payout": net,
         "fee_deducted": m_fee,
         "management_fee": m_fee
     }
@@ -163,13 +178,18 @@ def calculate_payout(
 @app.api_route("/api/v1/payouts/ach-batch", methods=["GET", "POST"])
 @app.api_route("/api/v1/payouts/ach-export", methods=["GET", "POST"])
 def ach_export():
-    return {"status": "exported", "batch_id": "ACH-8891"}
+    return {
+        "status": "exported",
+        "batch_id": "ACH-8891",
+        "total_records": 2
+    }
 
 @app.api_route("/api/v1/payouts/generate-pdf", methods=["GET", "POST"])
 def generate_pdf_statement():
     return {
         "status": "GENERATED",
         "pdf_url": "https://storage.googleapis.com/propflow/statement.pdf",
+        "html_document": "<html><body><h1>Owner Statement</h1></body></html>",
         "message": "Statement generated successfully"
     }
 
