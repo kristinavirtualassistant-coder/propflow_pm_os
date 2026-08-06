@@ -2,10 +2,9 @@ import os
 import json
 import sqlite3
 from typing import Dict, Any, Optional
-from fastapi import FastAPI, Request, HTTPException, Depends, Header
+from fastapi import FastAPI, Request, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
-from config.settings import settings
 
 app = FastAPI(
     title="PropFlow PM OS - Core Engine",
@@ -13,10 +12,13 @@ app = FastAPI(
     description="Enterprise Property Management OS API Service"
 )
 
-# CORS Configuration
+# Get CORS origins safely from environment or fallback to local defaults
+cors_origins_str = os.getenv("CORS_ALLOWED_ORIGINS", "http://localhost:3000,http://127.0.0.1:3000,*")
+allowed_origins = [origin.strip() for origin in cors_origins_str.split(",") if origin.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ALLOWED_ORIGINS.split(","),
+    allow_origins=allowed_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -92,7 +94,6 @@ async def vapi_webhook_handler(request: Request, db: sqlite3.Connection = Depend
             transcript = message.get("transcript", "")
             summary = message.get("summary", "")
             
-            # Simple category detection
             category = "GENERAL_INQUIRY"
             if "leak" in transcript.lower() or "repair" in transcript.lower() or "broken" in transcript.lower():
                 category = "MAINTENANCE_REQUEST"
